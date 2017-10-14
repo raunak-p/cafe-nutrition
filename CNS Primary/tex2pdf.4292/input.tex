@@ -1,0 +1,355 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{eurosym}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Nutrition Report 2017},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Nutrition Report 2017}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+
+\begin{document}
+\maketitle
+
+\includegraphics{cns_logo.png}
+
+\newpage
+
+\includegraphics{Tchia_Pathare_report_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+Tchia has a total nutrition score of 34 out of 50 possible points. Read
+on to know what you're doing well and how you can get even better
+
+\includegraphics{Tchia_Pathare_report_files/figure-latex/unnamed-chunk-4-1.pdf}
+A higher proportion of blue green indicates better performance. For
+example, blue/green in vegetables indicates that your child is getting
+enough vegetables, while more blue/green in junk food and screen
+indicates your child is getting \emph{less} junk and screen time
+
+\section{\texorpdfstring{\texttt{\{r,\ results\ =\ \textquotesingle{}asis\textquotesingle{}\}\ \#\ good\ \textless{}-\ paste("Here\ are\ some\ things\ that",\ subgroup\$first\_name,\ "is\ doing\ well.\ Keep\ them\ up")\ \#\ \ \#\ protein\ \textless{}-\ paste("\#\#",\ "Protein")\ \#\ protein\_g\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "is\ getting\ enough\ protein.\ This\ is\ great\ because\ protein\ repairs\ your\ builds\ and\ repairs\ body\ tissue\ and\ organs,\ especially\ vital\ at\ this\ age.\ Proteins\ also\ form\ antibodies\ that\ help\ prevent\ infection,\ illness,\ and\ disease.\ Good\ job\ at\ keeping",\ subgroup\$first\_name,\ "healthy\ and\ safe!")\ \#\ protein\_b\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "needs\ to\ get\ more\ protein.\ Protein\ repairs\ your\ builds\ and\ repairs\ body\ tissue\ and\ organs,\ especially\ vital\ at\ this\ age.\ Proteins\ also\ form\ antibodies\ that\ help\ prevent\ infection,\ illness,\ and\ disease.\ The\ following\ foods\ contain")\ \#\ protein\_1\ \textless{}-\ paste("*",\ "Dals\ and\ beans")\ \#\ protein\_2\ \textless{}-\ paste("*",\ "Nuts\ and\ seeds")\ \#\ protein\_3\ \textless{}-\ paste("*",\ "Eggs\ and\ poultry")\ \#\ protein\_4\ \textless{}-\ paste("*",\ "Fish")\ \#\ \ \#\ \ \#\ \ \#\ dairy\ \textless{}-\ paste("\#\#",\ "Dairy")\ \#\ dairy\_g\ \textless{}-\ paste("Getting\ enough\ dairy\ is\ not\ a\ problem\ for",\ subgroup\$first\_name\_c,\ ".\ Dairy\ and\ dairy-containing\ foods\ contribute\ many\ essential\ nutrients.\ Calcium\ and\ Vitamin\ D,\ especially,\ are\ \ most\ easily\ absorbed\ from\ dairy.Both\ these\ nutrients\ are\ important\ in\ ensuring\ that",\ subgroup\$first\_name,\ "has\ healthy\ bones\ and\ teeth")\ \#\ dairy\_b\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "could\ do\ with\ some\ more\ dairy.\ Dairy\ and\ dairy-containing\ foods\ contribute\ many\ essential\ nutrients.\ Calcium\ and\ Vitamin\ D,\ especially,\ are\ \ most\ easily\ absorbed\ from\ dairy.Both\ these\ nutrients\ are\ important\ in\ ensuring\ that",\ subgroup\$first\_name\_c,\ "has\ healthy\ bones\ and\ teeth.\ You\ could\ squeeze\ in\ a\ serving\ as\ a\ snack\ in\ the\ evening,\ or\ a\ cup\ of\ yogurt\ post\ the\ evening\ play.\ Here\ are\ some\ other\ tips\ to\ increase",\ subgroup\$his\_and\_her,\ "dairy\ intake:")\ \#\ dairy\_1\ \textless{}-\ paste("*",\ "Add\ milk\ in\ homemade\ puddings\ or\ fruit\ custards.\ You\ can\ control\ sugar\ with\ homemade\ stuff.")\ \#\ dairy\_2\ \textless{}-\ paste("*",\ "Parathas\ with\ paneer")\ \#\ dairy\_3\ \textless{}-\ paste("*",\ "Cheese\ cubes\ with\ fruit\ can\ be\ a\ great\ snack")\ \#\ dairy\_4\ \textless{}-\ paste("*",\ "Smoothies\ and\ milkshakes\ are\ good\ options\ as\ well")\ \#\ \ \#\ \ \#\ fruit\ \textless{}-\ paste("\#\#",\ "Fruits")\ \#\ fruit\_g\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "is\ getting\ enough\ fruit.\ Fruits\ give\ you\ sustainable\ energy,\ unlike\ sugar\ highs\ that\ last\ a\ few\ hours\ or\ less.\ Fruits\ also\ have\ many\ micronutrients.\ For\ example,\ citrus\ fruits\ and\ strawberries\ are\ rich\ in\ immune\ system-boosting\ vitamin\ C.\ Apples\ contain\ 16\ different\ polyphenols,\ which\ are\ antioxidants\ with\ health-promoting\ properties.\ Eating\ fruits\ and\ vegetables\ in\ a\ rainbow\ of\ colors\ will\ provide\ a\ wide\ range\ of\ nutrients\ that\ will\ help\ keep",\ subgroup\$first\_name\_c,\ "healthy"\ )\ \#\ fruit\_b\ \textless{}-\ paste("It\ would\ be\ great\ if\ you\ could\ include\ more\ fruits\ in",\ subgroup\$first\_name\_c,\ "\textquotesingle{}s\ diet.\ Fruits\ give\ you\ sustainable\ energy,\ unlike\ sugar\ highs\ that\ last\ a\ few\ hours\ or\ less.\ Fruits\ also\ have\ many\ micronutrients.\ For\ example,\ citrus\ fruits\ and\ strawberries\ are\ rich\ in\ immune\ system-boosting\ vitamin\ C.\ Apples\ contain\ 16\ different\ polyphenols,\ which\ are\ antioxidants\ with\ health-promoting\ properties.")\ \#\ fruit\_1\ \textless{}-\ paste("*",\ "Try\ food\ smoothies\ or\ milkshakes\ as\ snacks"\ )\ \#\ fruit\_2\ \textless{}-\ paste("*",\ "Add\ fruits\ to\ salads\ which\ will\ make\ salad\ colourful\ and\ appealing"\ )\ \#\ fruit\_3\ \textless{}-\ paste("*",\ "Maybe\ add\ fruit\ to\ yogurt")\ \#\ fruit\_4\ \textless{}-\ paste("*",\ "You\ can\ sprinkle\ chaat\ masala\ on\ fruits\ to\ improve\ how\ they\ taste"\ )\ \#\ fruit\_5\ \textless{}-\ paste("*",\ "Fruits\ can\ be\ added\ to\ cereal\ or\ porridge\ and\ to\ pancakes"\ )\ \#\ \ \#\ \ \#\ veg\ \textless{}-\ paste("\#\#",\ "Vegetables")\ \#\ veg\_g\ \textless{}-\ paste("Good\ job!",\ subgroup\$first\_name\_c,\ "is\ getting",\ subgroup\$his\_and\_her,\ "share\ of\ vegetables.\ They\ have\ nutrients\ that\ can\ boost\ immunity\ and\ keep\ ailments\ like\ a\ common\ cold\ and\ flu\ at\ bay.\ It\textquotesingle{}s\ especially\ important\ that",\ subgroup\$first\_name,\ "is\ eating\ vegetables\ at\ this\ early\ age\ because\ food\ tastes\ are\ formed\ young.\ Eating\ vegetables\ in\ a\ rainbow\ of\ colors\ will\ provide\ a\ wide\ range\ of\ nutrients\ that\ will\ help\ keep",\ subgroup\$first\_name,\ "healthy")\ \#\ veg\_b\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "could\ do\ with\ more\ vegetables\ in",\ subgroup\$his\_and\_her,\ "diet.\ They\ have\ nutrients\ that\ can\ boost\ immunity\ and\ keep\ ailments\ like\ a\ common\ cold\ and\ flu\ at\ bay.\ It\textquotesingle{}s\ especially\ important\ that",\ subgroup\$first\_name,\ "is\ eating\ vegetables\ at\ this\ early\ age\ because\ food\ tastes\ are\ formed\ young.\ Eating\ vegetables\ in\ a\ rainbow\ of\ colors\ will\ provide\ a\ wide\ range\ of\ nutrients\ that\ will\ help\ keep",\ subgroup\$first\_name,\ "healthy")\ \#\ veg\_1\ \textless{}-\ paste("*",\ "Include\ vegetables\ in\ almost\ all\ foods\ (finely\ chopped\ if\ necessary)")\ \#\ veg\_2\ \textless{}-\ paste("*",\ "Offer\ vegetable\ sticks\ like\ cucumber\ and\ carrots\ with\ curd\ dips\ or\ hummus")\ \#\ veg\_3\ \textless{}-\ paste("*",\ "Add\ slices\ of\ cucumber,\ capsicum,\ grated\ carrot\ and\ lettuce\ to\ sandwiches")\ \#\ veg\_4\ \textless{}-\ paste("*",\ "Use\ pureed\ or\ grated\ vegetables\ in\ pasta\ sauces\ or\ soups")\ \#\ veg\_5\ \textless{}-\ paste("*",\ "Include\ them\ in\ parathas\ (even\ aloo\ parathas\ can\ have\ other\ mashed\ vegetables)")\ \#\ veg\_6\ \textless{}-\ paste("*",\ "Keep\ trying.\ It\ takes\ almost\ 10\ times\ before\ children\ warm\ up\ to\ a\ particular\ food")\ \#\ \ \#\ \ \#\ \ \#\ \ \#\ junk\ \textless{}-\ paste("\#\#",\ "Junk\ Food")\ \#\ junk\_g\ \textless{}-\ paste("Unlike\ most\ kids,\ you\ are\ keeping",\ subgroup\$first\_name\_c,\ "\textquotesingle{}s\ fried\ and\ sugary\ intake\ to\ a\ minimum.\ Good\ job!\ Apart\ from\ promoting\ obesity\ and\ cardiac\ disease,\ sugar\ can\ have\ a\ harmful\ effect\ on\ academic\ performace.\ In\ an\ interesting\ study\ researchers\ fed\ normal\ preschoolers\ a\ high-sugar\ drink\ containing\ the\ amount\ of\ sugar\ in\ the\ average\ can\ of\ soda\ and\ compared\ them\ with\ children\ who\ received\ a\ non-sugar\ drink.\ The\ sugar\ group\ experienced\ decreased\ learning\ performance\ and\ more\ hyperactivity\ than\ the\ non-sugar\ group.")\ \#\ junk\_b\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "could\ reduce",\ subgroup\$his\_and\_her,\ "consumption\ of\ sweet\ and/or\ fried\ food.\ Apart\ from\ promoting\ obesity\ and\ cardiac\ disease,\ sugar\ can\ have\ a\ harmful\ effect\ on\ academic\ performace.\ In\ an\ interesting\ study,\ researchers\ fed\ normal\ preschoolers\ a\ high-sugar\ drink\ containing\ the\ amount\ of\ sugar\ in\ the\ average\ can\ of\ soda\ and\ compared\ them\ with\ children\ who\ received\ a\ non-sugar\ drink.\ The\ sugar\ group\ experienced\ decreased\ learning\ performance\ and\ more\ hyperactivity\ than\ the\ non-sugar\ group.\ Here\ are\ some\ strateges\ for\ how\ to\ do\ that")\ \#\ junk\_1\ \textless{}-\ paste(\ "*",\ "Parents\ -\ lead\ by\ example.\ If\ children\ see\ you\ snacking\ on\ sweet\ foods\ and\ drinks\ they\ will\ follow\ you")\ \#\ junk\_2\ \textless{}-\ paste(\ "*",\ "\ Set\ a\ specific\ day\ and\ mealtime\ for\ dessert")\ \#\ junk\_3\ \textless{}-\ paste(\ "*",\ "Offer\ sweet\ fruits\ or\ dried\ fruits\ as\ snacks")\ \#\ junk\_4\ \textless{}-\ paste(\ "*",\ "Buy\ plain\ yogurt\ instead\ of\ the\ flavoured\ one\ and\ sweeten\ it\ with\ dried\ fruits\ or\ berries\ to\ enhance\ the\ taste")\ \#\ junk\_5\ \textless{}-\ paste(\ "*",\ "Stock\ your\ home\ with\ healthy\ snacking\ options\ like\ dried\ fruits,\ nuts,\ fruits\ and\ vegetables\ with\ dips\ like\ hummus\ and\ curd\ dips\ etc")\ \#\ junk\_6\ \textless{}-\ paste("*",\ "Cook\ healthier\ alternatives\ of\ junk\ food\ eg\ baked\ fries\ instead\ of\ frying\ them,\ homemade\ pizzas\ with\ the\ healthy\ base\ and\ sauce,\ homemade\ burgers,\ whole\ wheat\ pastas,\ etc\ ")\ \#\ \ \#\ \ \#\ \ \#\ \ \#\ \ \#\ exercise\ \textless{}-\ paste("\#\#",\ "Exercise")\ \#\ exercise\_g\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "seems\ to\ be\ getting\ enough\ physical\ activity.\ This\ is\ especially\ important\ at\ a\ young\ age\ because\ physical\ (body)\ and\ cognitive\ (brain)\ development\ go\ hand-in-hand.\ While\ this\ continues\ for\ life,\ this\ relationship\ is\ most\ critical\ at\ a\ young\ age.\ When\ kids\ are\ active,\ their\ brain\ develops,\ allowing\ for\ new\ types\ of\ activity.\ Frequent\ physical\ activity\ has\ been\ associated\ with\ improved\ behavior\ in\ the\ classroom\ and\ beyond.\ Aerobic\ activity\ has\ been\ shown\ to\ increase\ the\ size\ of\ essential\ brain\ structures\ and\ number\ of\ neural\ connections.")\ \#\ exercise\_b\ \textless{}-\ paste("Getting\ more\ \ physical\ activity\ would\ be\ good\ for",\ subgroup\$first\_name\_c,\ "This\ is\ especially\ important\ at\ a\ young\ age\ because\ physical\ (body)\ and\ cognitive\ (brain)\ development\ go\ hand-in-hand.\ While\ this\ continues\ for\ life,\ this\ relationship\ is\ most\ critical\ at\ a\ young\ age.\ When\ kids\ are\ active,\ their\ brain\ develops,\ allowing\ for\ new\ types\ of\ activity.\ Frequent\ physical\ activity\ has\ been\ associated\ with\ improved\ behavior\ in\ the\ classroom\ and\ beyond.\ Aerobic\ activity\ has\ been\ shown\ to\ increase\ the\ size\ of\ essential\ brain\ structures\ and\ number\ of\ neural\ connections.\ Here\ are\ a\ few\ things\ you\ could\ do\ to\ encourage\ more\ physical\ activty.")\ \#\ ex\_1\ \textless{}-\ paste("*",\ "Most\ importantly\ be\ a\ role\ good\ model.\ If\ children\ see\ you\ being\ active\ they\ will\ follow\ suit.\ ")\ \#\ ex\_2\ \textless{}-\ paste("*",\ "You\ could\ initiate\ forming\ a\ play\ group\ with\ other\ children")\ \#\ ex\_3\ \textless{}-\ paste("*",\ "Walk\ short\ distances\ with\ the\ child\ instead\ of\ taking\ a\ vehicle")\ \#\ ex\_4\ \textless{}-\ paste("*",\ "Decrease\ screen\ time\ as\ hand\ held\ devices,\ computers\ and\ mobile\ phones\ for\ a\ few\ hours\ may\ reduce\ active\ play\ time")\ \#\ \ \#\ screens\ \textless{}-\ paste("\#\#",\ "Screen\ Time")\ \#\ screen\_g\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "is\ a\ rare\ gem.\ The\ majority\ of\ kids\ spend\ hours\ on\ screens.\ Excessive\ screen\ time\ at\ a\ young\ age\ can\ be\ harmful\ in\ many\ ways.\ For\ example,\ tablets\ are\ the\ ultimate\ shortcut\ tools.\ Unlike\ a\ mother\ reading\ a\ story\ to\ a\ child,\ for\ example,\ a\ smartphone-told\ story\ spoon-feeds\ images,\ words,\ and\ pictures\ all\ at\ once\ to\ a\ young\ reader.\ Rather\ than\ having\ to\ take\ the\ time\ to\ process\ a\ motherâ\euro{}™s\ voice\ into\ words,\ visualize\ complete\ pictures\ and\ exert\ a\ mental\ effort\ to\ follow\ a\ story\ line,\ kids\ who\ follow\ stories\ on\ their\ smartphones\ get\ lazy.\ The\ device\ does\ the\ thinking\ for\ them,\ and\ as\ a\ result,\ their\ own\ cognitive\ muscles\ remain\ weak.")\ \#\ screen\_b\ \textless{}-\ paste("It\ would\ be\ good\ for",\ subgroup\$first\_name\_c,\ "to\ spend\ less\ time\ on\ screens.\ Excessive\ screen\ time\ at\ a\ young\ age\ can\ be\ harmful\ in\ many\ ways.\ For\ example,\ tablets\ are\ the\ ultimate\ shortcut\ tools.\ Unlike\ a\ mother\ reading\ a\ story\ to\ a\ child,\ for\ example,\ a\ smartphone-told\ story\ spoon-feeds\ images,\ words,\ and\ pictures\ all\ at\ once\ to\ a\ young\ reader.\ Rather\ than\ having\ to\ take\ the\ time\ to\ process\ a\ motherâ\euro{}™s\ voice\ into\ words,\ visualize\ complete\ pictures\ and\ exert\ a\ mental\ effort\ to\ follow\ a\ story\ line,\ kids\ who\ follow\ stories\ on\ their\ smartphones\ get\ lazy.\ The\ device\ does\ the\ thinking\ for\ them,\ and\ as\ a\ result,\ their\ own\ cognitive\ muscles\ remain\ weak.")\ \#\ screen\_1\ \textless{}-\ paste("*",\ "You\ could\ replace\ time\ spent\ on\ screen\ by\ encouraging",\ subgroup\$first\_name\_c,\ "to\ spend\ more\ time\ playing.\ Maybe\ join\ a\ sports\ class\ or\ group?")\ \#\ \ \#\ water\ \textless{}-\ paste("\#\#\ Water")\ \#\ water\_g\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "is\ getting\ enough\ water.\ Let\ this\ continue\ as\ kids\ don\textquotesingle{}t\ always\ recognise\ the\ early\ stages\ of\ thirst,\ which\ can\ make\ them\ particularly\ vulnerable\ to\ becoming\ dehydrated,\ especially\ during\ times\ that\ can\ drive\ up\ their\ body\ fluid\ losses,\ for\ example\ when\ they\ are\ playing\ sport\ or\ during\ warm\ weather.\ Dehydration,\ even\ if\ only\ mild,\ can\ cause\ tiredness,\ headaches,\ lack\ of\ concentration,\ reduced\ mental\ performance\ and\ dry\ skin.")\ \#\ water\_b\ \textless{}-\ paste(subgroup\$first\_name\_c,\ "is\ not\ getting\ enough\ water.\ Kids\ don\textquotesingle{}t\ always\ recognise\ the\ early\ stages\ of\ thirst,\ which\ can\ make\ them\ particularly\ vulnerable\ to\ becoming\ dehydrated,\ especially\ during\ times\ that\ can\ drive\ up\ their\ body\ fluid\ losses,\ for\ example\ when\ they\ are\ playing\ sport\ or\ during\ warm\ weather.\ Dehydration,\ even\ if\ only\ mild,\ can\ cause\ tiredness,\ headaches,\ lack\ of\ concentration,\ reduced\ mental\ performance\ and\ dry\ skin.\ \ Here\ are\ a\ couple\ things\ you\ can\ try\ to\ make",\ subgroup\$first\_name\_c,\ "drink\ more\ water")\ \#\ water\_1\ \textless{}-\ paste("*",\ "Diluting\ a\ fresh\ juice\ with\ some\ water\ is\ an\ option\ if\ the\ child\ is\ not\ willing\ to\ drink\ water\ voluntarily")\ \#\ water\_2\ \textless{}-\ paste("*",\ "Actively\ encourage\ them\ to\ drink\ more\ and\ lead\ by\ example")\ \#\ \ \#\ \ \ \ \#\ cat("\#",\ "Things\ You\textquotesingle{}re\ Doing\ Well",\ "\textbackslash{}n")\ \#\ \ \#\ \ \#\ cat("\textbackslash{}n")\ \#\ cat("\textbackslash{}n")\ \#\ \ \#\ if(subgroup\$protein\_total\_p\ ==\ 10)\{\ \#\ \ \ cat(protein)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(protein\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ if(subgroup\$dairy\_total\_p\ ==\ 10)\{\ \#\ \ \ cat(dairy)\ \#\ \ \ cat("!{[}{]}(dairy.jpg)")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(dairy\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ if(subgroup\$vegetables\_p\ ==\ 4)\{\ \#\ \ \ cat(veg)\ \#\ \ \ cat("!{[}{]}(vegetable.jpg)")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(veg\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ \ \#\ if(subgroup\$fruits\_p\ ==\ 4)\{\ \#\ \ \ cat(fruit)\ \#\ \ \ cat("!{[}{]}(fruit.jpg)")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(fruit\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ \ \#\ if(subgroup\$healthy\_p\ ==\ 8)\{\ \#\ \ \ cat(junk)\ \#\ \ \ cat("!{[}{]}(sugar.png)")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(junk\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ \ \#\ if(subgroup\$excercise\_p\ ==\ 4)\{\ \#\ \ \ cat(exercise)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(exercise\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ if(subgroup\$screen\_p\ ==\ 4)\{\ \#\ \ \ cat(screens)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(screen\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#\ \ \#\ \ \#\ \ \#\ if(subgroup\$water\_p\ ==\ 4)\{\ \#\ \ \ cat(water)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat(water\_g)\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \ \ cat("\textbackslash{}n")\ \#\ \}\ \#}}{\{r, results = 'asis'\} \# good \textless{}- paste("Here are some things that", subgroup\$first\_name, "is doing well. Keep them up") \#  \# protein \textless{}- paste("\#\#", "Protein") \# protein\_g \textless{}- paste(subgroup\$first\_name\_c, "is getting enough protein. This is great because protein repairs your builds and repairs body tissue and organs, especially vital at this age. Proteins also form antibodies that help prevent infection, illness, and disease. Good job at keeping", subgroup\$first\_name, "healthy and safe!") \# protein\_b \textless{}- paste(subgroup\$first\_name\_c, "needs to get more protein. Protein repairs your builds and repairs body tissue and organs, especially vital at this age. Proteins also form antibodies that help prevent infection, illness, and disease. The following foods contain") \# protein\_1 \textless{}- paste("*", "Dals and beans") \# protein\_2 \textless{}- paste("*", "Nuts and seeds") \# protein\_3 \textless{}- paste("*", "Eggs and poultry") \# protein\_4 \textless{}- paste("*", "Fish") \#  \#  \#  \# dairy \textless{}- paste("\#\#", "Dairy") \# dairy\_g \textless{}- paste("Getting enough dairy is not a problem for", subgroup\$first\_name\_c, ". Dairy and dairy-containing foods contribute many essential nutrients. Calcium and Vitamin D, especially, are  most easily absorbed from dairy.Both these nutrients are important in ensuring that", subgroup\$first\_name, "has healthy bones and teeth") \# dairy\_b \textless{}- paste(subgroup\$first\_name\_c, "could do with some more dairy. Dairy and dairy-containing foods contribute many essential nutrients. Calcium and Vitamin D, especially, are  most easily absorbed from dairy.Both these nutrients are important in ensuring that", subgroup\$first\_name\_c, "has healthy bones and teeth. You could squeeze in a serving as a snack in the evening, or a cup of yogurt post the evening play. Here are some other tips to increase", subgroup\$his\_and\_her, "dairy intake:") \# dairy\_1 \textless{}- paste("*", "Add milk in homemade puddings or fruit custards. You can control sugar with homemade stuff.") \# dairy\_2 \textless{}- paste("*", "Parathas with paneer") \# dairy\_3 \textless{}- paste("*", "Cheese cubes with fruit can be a great snack") \# dairy\_4 \textless{}- paste("*", "Smoothies and milkshakes are good options as well") \#  \#  \# fruit \textless{}- paste("\#\#", "Fruits") \# fruit\_g \textless{}- paste(subgroup\$first\_name\_c, "is getting enough fruit. Fruits give you sustainable energy, unlike sugar highs that last a few hours or less. Fruits also have many micronutrients. For example, citrus fruits and strawberries are rich in immune system-boosting vitamin C. Apples contain 16 different polyphenols, which are antioxidants with health-promoting properties. Eating fruits and vegetables in a rainbow of colors will provide a wide range of nutrients that will help keep", subgroup\$first\_name\_c, "healthy" ) \# fruit\_b \textless{}- paste("It would be great if you could include more fruits in", subgroup\$first\_name\_c, "'s diet. Fruits give you sustainable energy, unlike sugar highs that last a few hours or less. Fruits also have many micronutrients. For example, citrus fruits and strawberries are rich in immune system-boosting vitamin C. Apples contain 16 different polyphenols, which are antioxidants with health-promoting properties.") \# fruit\_1 \textless{}- paste("*", "Try food smoothies or milkshakes as snacks" ) \# fruit\_2 \textless{}- paste("*", "Add fruits to salads which will make salad colourful and appealing" ) \# fruit\_3 \textless{}- paste("*", "Maybe add fruit to yogurt") \# fruit\_4 \textless{}- paste("*", "You can sprinkle chaat masala on fruits to improve how they taste" ) \# fruit\_5 \textless{}- paste("*", "Fruits can be added to cereal or porridge and to pancakes" ) \#  \#  \# veg \textless{}- paste("\#\#", "Vegetables") \# veg\_g \textless{}- paste("Good job!", subgroup\$first\_name\_c, "is getting", subgroup\$his\_and\_her, "share of vegetables. They have nutrients that can boost immunity and keep ailments like a common cold and flu at bay. It's especially important that", subgroup\$first\_name, "is eating vegetables at this early age because food tastes are formed young. Eating vegetables in a rainbow of colors will provide a wide range of nutrients that will help keep", subgroup\$first\_name, "healthy") \# veg\_b \textless{}- paste(subgroup\$first\_name\_c, "could do with more vegetables in", subgroup\$his\_and\_her, "diet. They have nutrients that can boost immunity and keep ailments like a common cold and flu at bay. It's especially important that", subgroup\$first\_name, "is eating vegetables at this early age because food tastes are formed young. Eating vegetables in a rainbow of colors will provide a wide range of nutrients that will help keep", subgroup\$first\_name, "healthy") \# veg\_1 \textless{}- paste("*", "Include vegetables in almost all foods (finely chopped if necessary)") \# veg\_2 \textless{}- paste("*", "Offer vegetable sticks like cucumber and carrots with curd dips or hummus") \# veg\_3 \textless{}- paste("*", "Add slices of cucumber, capsicum, grated carrot and lettuce to sandwiches") \# veg\_4 \textless{}- paste("*", "Use pureed or grated vegetables in pasta sauces or soups") \# veg\_5 \textless{}- paste("*", "Include them in parathas (even aloo parathas can have other mashed vegetables)") \# veg\_6 \textless{}- paste("*", "Keep trying. It takes almost 10 times before children warm up to a particular food") \#  \#  \#  \#  \# junk \textless{}- paste("\#\#", "Junk Food") \# junk\_g \textless{}- paste("Unlike most kids, you are keeping", subgroup\$first\_name\_c, "'s fried and sugary intake to a minimum. Good job! Apart from promoting obesity and cardiac disease, sugar can have a harmful effect on academic performace. In an interesting study researchers fed normal preschoolers a high-sugar drink containing the amount of sugar in the average can of soda and compared them with children who received a non-sugar drink. The sugar group experienced decreased learning performance and more hyperactivity than the non-sugar group.") \# junk\_b \textless{}- paste(subgroup\$first\_name\_c, "could reduce", subgroup\$his\_and\_her, "consumption of sweet and/or fried food. Apart from promoting obesity and cardiac disease, sugar can have a harmful effect on academic performace. In an interesting study, researchers fed normal preschoolers a high-sugar drink containing the amount of sugar in the average can of soda and compared them with children who received a non-sugar drink. The sugar group experienced decreased learning performance and more hyperactivity than the non-sugar group. Here are some strateges for how to do that") \# junk\_1 \textless{}- paste( "*", "Parents - lead by example. If children see you snacking on sweet foods and drinks they will follow you") \# junk\_2 \textless{}- paste( "*", " Set a specific day and mealtime for dessert") \# junk\_3 \textless{}- paste( "*", "Offer sweet fruits or dried fruits as snacks") \# junk\_4 \textless{}- paste( "*", "Buy plain yogurt instead of the flavoured one and sweeten it with dried fruits or berries to enhance the taste") \# junk\_5 \textless{}- paste( "*", "Stock your home with healthy snacking options like dried fruits, nuts, fruits and vegetables with dips like hummus and curd dips etc") \# junk\_6 \textless{}- paste("*", "Cook healthier alternatives of junk food eg baked fries instead of frying them, homemade pizzas with the healthy base and sauce, homemade burgers, whole wheat pastas, etc ") \#  \#  \#  \#  \#  \# exercise \textless{}- paste("\#\#", "Exercise") \# exercise\_g \textless{}- paste(subgroup\$first\_name\_c, "seems to be getting enough physical activity. This is especially important at a young age because physical (body) and cognitive (brain) development go hand-in-hand. While this continues for life, this relationship is most critical at a young age. When kids are active, their brain develops, allowing for new types of activity. Frequent physical activity has been associated with improved behavior in the classroom and beyond. Aerobic activity has been shown to increase the size of essential brain structures and number of neural connections.") \# exercise\_b \textless{}- paste("Getting more  physical activity would be good for", subgroup\$first\_name\_c, "This is especially important at a young age because physical (body) and cognitive (brain) development go hand-in-hand. While this continues for life, this relationship is most critical at a young age. When kids are active, their brain develops, allowing for new types of activity. Frequent physical activity has been associated with improved behavior in the classroom and beyond. Aerobic activity has been shown to increase the size of essential brain structures and number of neural connections. Here are a few things you could do to encourage more physical activty.") \# ex\_1 \textless{}- paste("*", "Most importantly be a role good model. If children see you being active they will follow suit. ") \# ex\_2 \textless{}- paste("*", "You could initiate forming a play group with other children") \# ex\_3 \textless{}- paste("*", "Walk short distances with the child instead of taking a vehicle") \# ex\_4 \textless{}- paste("*", "Decrease screen time as hand held devices, computers and mobile phones for a few hours may reduce active play time") \#  \# screens \textless{}- paste("\#\#", "Screen Time") \# screen\_g \textless{}- paste(subgroup\$first\_name\_c, "is a rare gem. The majority of kids spend hours on screens. Excessive screen time at a young age can be harmful in many ways. For example, tablets are the ultimate shortcut tools. Unlike a mother reading a story to a child, for example, a smartphone-told story spoon-feeds images, words, and pictures all at once to a young reader. Rather than having to take the time to process a motherâ\euro{}™s voice into words, visualize complete pictures and exert a mental effort to follow a story line, kids who follow stories on their smartphones get lazy. The device does the thinking for them, and as a result, their own cognitive muscles remain weak.") \# screen\_b \textless{}- paste("It would be good for", subgroup\$first\_name\_c, "to spend less time on screens. Excessive screen time at a young age can be harmful in many ways. For example, tablets are the ultimate shortcut tools. Unlike a mother reading a story to a child, for example, a smartphone-told story spoon-feeds images, words, and pictures all at once to a young reader. Rather than having to take the time to process a motherâ\euro{}™s voice into words, visualize complete pictures and exert a mental effort to follow a story line, kids who follow stories on their smartphones get lazy. The device does the thinking for them, and as a result, their own cognitive muscles remain weak.") \# screen\_1 \textless{}- paste("*", "You could replace time spent on screen by encouraging", subgroup\$first\_name\_c, "to spend more time playing. Maybe join a sports class or group?") \#  \# water \textless{}- paste("\#\# Water") \# water\_g \textless{}- paste(subgroup\$first\_name\_c, "is getting enough water. Let this continue as kids don't always recognise the early stages of thirst, which can make them particularly vulnerable to becoming dehydrated, especially during times that can drive up their body fluid losses, for example when they are playing sport or during warm weather. Dehydration, even if only mild, can cause tiredness, headaches, lack of concentration, reduced mental performance and dry skin.") \# water\_b \textless{}- paste(subgroup\$first\_name\_c, "is not getting enough water. Kids don't always recognise the early stages of thirst, which can make them particularly vulnerable to becoming dehydrated, especially during times that can drive up their body fluid losses, for example when they are playing sport or during warm weather. Dehydration, even if only mild, can cause tiredness, headaches, lack of concentration, reduced mental performance and dry skin.  Here are a couple things you can try to make", subgroup\$first\_name\_c, "drink more water") \# water\_1 \textless{}- paste("*", "Diluting a fresh juice with some water is an option if the child is not willing to drink water voluntarily") \# water\_2 \textless{}- paste("*", "Actively encourage them to drink more and lead by example") \#  \#    \# cat("\#", "Things You're Doing Well", "\textbackslash{}n") \#  \#  \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \#  \# if(subgroup\$protein\_total\_p == 10)\{ \#   cat(protein) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(protein\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \# if(subgroup\$dairy\_total\_p == 10)\{ \#   cat(dairy) \#   cat("!{[}{]}(dairy.jpg)") \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(dairy\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \# if(subgroup\$vegetables\_p == 4)\{ \#   cat(veg) \#   cat("!{[}{]}(vegetable.jpg)") \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(veg\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \#  \# if(subgroup\$fruits\_p == 4)\{ \#   cat(fruit) \#   cat("!{[}{]}(fruit.jpg)") \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(fruit\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \#  \# if(subgroup\$healthy\_p == 8)\{ \#   cat(junk) \#   cat("!{[}{]}(sugar.png)") \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(junk\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \#  \# if(subgroup\$excercise\_p == 4)\{ \#   cat(exercise) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(exercise\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \# if(subgroup\$screen\_p == 4)\{ \#   cat(screens) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(screen\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#  \#  \#  \# if(subgroup\$water\_p == 4)\{ \#   cat(water) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \#   cat(water\_g) \#   cat("\textbackslash{}n") \#   cat("\textbackslash{}n") \# \} \#}}\label{r-results-asis-good---pastehere-are-some-things-that-subgroupfirst_name-is-doing-well.-keep-them-up-protein---paste-protein-protein_g---pastesubgroupfirst_name_c-is-getting-enough-protein.-this-is-great-because-protein-repairs-your-builds-and-repairs-body-tissue-and-organs-especially-vital-at-this-age.-proteins-also-form-antibodies-that-help-prevent-infection-illness-and-disease.-good-job-at-keeping-subgroupfirst_name-healthy-and-safe-protein_b---pastesubgroupfirst_name_c-needs-to-get-more-protein.-protein-repairs-your-builds-and-repairs-body-tissue-and-organs-especially-vital-at-this-age.-proteins-also-form-antibodies-that-help-prevent-infection-illness-and-disease.-the-following-foods-contain-protein_1---paste-dals-and-beans-protein_2---paste-nuts-and-seeds-protein_3---paste-eggs-and-poultry-protein_4---paste-fish-dairy---paste-dairy-dairy_g---pastegetting-enough-dairy-is-not-a-problem-for-subgroupfirst_name_c-.-dairy-and-dairy-containing-foods-contribute-many-essential-nutrients.-calcium-and-vitamin-d-especially-are-most-easily-absorbed-from-dairy.both-these-nutrients-are-important-in-ensuring-that-subgroupfirst_name-has-healthy-bones-and-teeth-dairy_b---pastesubgroupfirst_name_c-could-do-with-some-more-dairy.-dairy-and-dairy-containing-foods-contribute-many-essential-nutrients.-calcium-and-vitamin-d-especially-are-most-easily-absorbed-from-dairy.both-these-nutrients-are-important-in-ensuring-that-subgroupfirst_name_c-has-healthy-bones-and-teeth.-you-could-squeeze-in-a-serving-as-a-snack-in-the-evening-or-a-cup-of-yogurt-post-the-evening-play.-here-are-some-other-tips-to-increase-subgrouphis_and_her-dairy-intake-dairy_1---paste-add-milk-in-homemade-puddings-or-fruit-custards.-you-can-control-sugar-with-homemade-stuff.-dairy_2---paste-parathas-with-paneer-dairy_3---paste-cheese-cubes-with-fruit-can-be-a-great-snack-dairy_4---paste-smoothies-and-milkshakes-are-good-options-as-well-fruit---paste-fruits-fruit_g---pastesubgroupfirst_name_c-is-getting-enough-fruit.-fruits-give-you-sustainable-energy-unlike-sugar-highs-that-last-a-few-hours-or-less.-fruits-also-have-many-micronutrients.-for-example-citrus-fruits-and-strawberries-are-rich-in-immune-system-boosting-vitamin-c.-apples-contain-16-different-polyphenols-which-are-antioxidants-with-health-promoting-properties.-eating-fruits-and-vegetables-in-a-rainbow-of-colors-will-provide-a-wide-range-of-nutrients-that-will-help-keep-subgroupfirst_name_c-healthy-fruit_b---pasteit-would-be-great-if-you-could-include-more-fruits-in-subgroupfirst_name_c-s-diet.-fruits-give-you-sustainable-energy-unlike-sugar-highs-that-last-a-few-hours-or-less.-fruits-also-have-many-micronutrients.-for-example-citrus-fruits-and-strawberries-are-rich-in-immune-system-boosting-vitamin-c.-apples-contain-16-different-polyphenols-which-are-antioxidants-with-health-promoting-properties.-fruit_1---paste-try-food-smoothies-or-milkshakes-as-snacks-fruit_2---paste-add-fruits-to-salads-which-will-make-salad-colourful-and-appealing-fruit_3---paste-maybe-add-fruit-to-yogurt-fruit_4---paste-you-can-sprinkle-chaat-masala-on-fruits-to-improve-how-they-taste-fruit_5---paste-fruits-can-be-added-to-cereal-or-porridge-and-to-pancakes-veg---paste-vegetables-veg_g---pastegood-job-subgroupfirst_name_c-is-getting-subgrouphis_and_her-share-of-vegetables.-they-have-nutrients-that-can-boost-immunity-and-keep-ailments-like-a-common-cold-and-flu-at-bay.-its-especially-important-that-subgroupfirst_name-is-eating-vegetables-at-this-early-age-because-food-tastes-are-formed-young.-eating-vegetables-in-a-rainbow-of-colors-will-provide-a-wide-range-of-nutrients-that-will-help-keep-subgroupfirst_name-healthy-veg_b---pastesubgroupfirst_name_c-could-do-with-more-vegetables-in-subgrouphis_and_her-diet.-they-have-nutrients-that-can-boost-immunity-and-keep-ailments-like-a-common-cold-and-flu-at-bay.-its-especially-important-that-subgroupfirst_name-is-eating-vegetables-at-this-early-age-because-food-tastes-are-formed-young.-eating-vegetables-in-a-rainbow-of-colors-will-provide-a-wide-range-of-nutrients-that-will-help-keep-subgroupfirst_name-healthy-veg_1---paste-include-vegetables-in-almost-all-foods-finely-chopped-if-necessary-veg_2---paste-offer-vegetable-sticks-like-cucumber-and-carrots-with-curd-dips-or-hummus-veg_3---paste-add-slices-of-cucumber-capsicum-grated-carrot-and-lettuce-to-sandwiches-veg_4---paste-use-pureed-or-grated-vegetables-in-pasta-sauces-or-soups-veg_5---paste-include-them-in-parathas-even-aloo-parathas-can-have-other-mashed-vegetables-veg_6---paste-keep-trying.-it-takes-almost-10-times-before-children-warm-up-to-a-particular-food-junk---paste-junk-food-junk_g---pasteunlike-most-kids-you-are-keeping-subgroupfirst_name_c-s-fried-and-sugary-intake-to-a-minimum.-good-job-apart-from-promoting-obesity-and-cardiac-disease-sugar-can-have-a-harmful-effect-on-academic-performace.-in-an-interesting-study-researchers-fed-normal-preschoolers-a-high-sugar-drink-containing-the-amount-of-sugar-in-the-average-can-of-soda-and-compared-them-with-children-who-received-a-non-sugar-drink.-the-sugar-group-experienced-decreased-learning-performance-and-more-hyperactivity-than-the-non-sugar-group.-junk_b---pastesubgroupfirst_name_c-could-reduce-subgrouphis_and_her-consumption-of-sweet-andor-fried-food.-apart-from-promoting-obesity-and-cardiac-disease-sugar-can-have-a-harmful-effect-on-academic-performace.-in-an-interesting-study-researchers-fed-normal-preschoolers-a-high-sugar-drink-containing-the-amount-of-sugar-in-the-average-can-of-soda-and-compared-them-with-children-who-received-a-non-sugar-drink.-the-sugar-group-experienced-decreased-learning-performance-and-more-hyperactivity-than-the-non-sugar-group.-here-are-some-strateges-for-how-to-do-that-junk_1---paste-parents---lead-by-example.-if-children-see-you-snacking-on-sweet-foods-and-drinks-they-will-follow-you-junk_2---paste-set-a-specific-day-and-mealtime-for-dessert-junk_3---paste-offer-sweet-fruits-or-dried-fruits-as-snacks-junk_4---paste-buy-plain-yogurt-instead-of-the-flavoured-one-and-sweeten-it-with-dried-fruits-or-berries-to-enhance-the-taste-junk_5---paste-stock-your-home-with-healthy-snacking-options-like-dried-fruits-nuts-fruits-and-vegetables-with-dips-like-hummus-and-curd-dips-etc-junk_6---paste-cook-healthier-alternatives-of-junk-food-eg-baked-fries-instead-of-frying-them-homemade-pizzas-with-the-healthy-base-and-sauce-homemade-burgers-whole-wheat-pastas-etc-exercise---paste-exercise-exercise_g---pastesubgroupfirst_name_c-seems-to-be-getting-enough-physical-activity.-this-is-especially-important-at-a-young-age-because-physical-body-and-cognitive-brain-development-go-hand-in-hand.-while-this-continues-for-life-this-relationship-is-most-critical-at-a-young-age.-when-kids-are-active-their-brain-develops-allowing-for-new-types-of-activity.-frequent-physical-activity-has-been-associated-with-improved-behavior-in-the-classroom-and-beyond.-aerobic-activity-has-been-shown-to-increase-the-size-of-essential-brain-structures-and-number-of-neural-connections.-exercise_b---pastegetting-more-physical-activity-would-be-good-for-subgroupfirst_name_c-this-is-especially-important-at-a-young-age-because-physical-body-and-cognitive-brain-development-go-hand-in-hand.-while-this-continues-for-life-this-relationship-is-most-critical-at-a-young-age.-when-kids-are-active-their-brain-develops-allowing-for-new-types-of-activity.-frequent-physical-activity-has-been-associated-with-improved-behavior-in-the-classroom-and-beyond.-aerobic-activity-has-been-shown-to-increase-the-size-of-essential-brain-structures-and-number-of-neural-connections.-here-are-a-few-things-you-could-do-to-encourage-more-physical-activty.-ex_1---paste-most-importantly-be-a-role-good-model.-if-children-see-you-being-active-they-will-follow-suit.-ex_2---paste-you-could-initiate-forming-a-play-group-with-other-children-ex_3---paste-walk-short-distances-with-the-child-instead-of-taking-a-vehicle-ex_4---paste-decrease-screen-time-as-hand-held-devices-computers-and-mobile-phones-for-a-few-hours-may-reduce-active-play-time-screens---paste-screen-time-screen_g---pastesubgroupfirst_name_c-is-a-rare-gem.-the-majority-of-kids-spend-hours-on-screens.-excessive-screen-time-at-a-young-age-can-be-harmful-in-many-ways.-for-example-tablets-are-the-ultimate-shortcut-tools.-unlike-a-mother-reading-a-story-to-a-child-for-example-a-smartphone-told-story-spoon-feeds-images-words-and-pictures-all-at-once-to-a-young-reader.-rather-than-having-to-take-the-time-to-process-a-motheras-voice-into-words-visualize-complete-pictures-and-exert-a-mental-effort-to-follow-a-story-line-kids-who-follow-stories-on-their-smartphones-get-lazy.-the-device-does-the-thinking-for-them-and-as-a-result-their-own-cognitive-muscles-remain-weak.-screen_b---pasteit-would-be-good-for-subgroupfirst_name_c-to-spend-less-time-on-screens.-excessive-screen-time-at-a-young-age-can-be-harmful-in-many-ways.-for-example-tablets-are-the-ultimate-shortcut-tools.-unlike-a-mother-reading-a-story-to-a-child-for-example-a-smartphone-told-story-spoon-feeds-images-words-and-pictures-all-at-once-to-a-young-reader.-rather-than-having-to-take-the-time-to-process-a-motheras-voice-into-words-visualize-complete-pictures-and-exert-a-mental-effort-to-follow-a-story-line-kids-who-follow-stories-on-their-smartphones-get-lazy.-the-device-does-the-thinking-for-them-and-as-a-result-their-own-cognitive-muscles-remain-weak.-screen_1---paste-you-could-replace-time-spent-on-screen-by-encouraging-subgroupfirst_name_c-to-spend-more-time-playing.-maybe-join-a-sports-class-or-group-water---paste-water-water_g---pastesubgroupfirst_name_c-is-getting-enough-water.-let-this-continue-as-kids-dont-always-recognise-the-early-stages-of-thirst-which-can-make-them-particularly-vulnerable-to-becoming-dehydrated-especially-during-times-that-can-drive-up-their-body-fluid-losses-for-example-when-they-are-playing-sport-or-during-warm-weather.-dehydration-even-if-only-mild-can-cause-tiredness-headaches-lack-of-concentration-reduced-mental-performance-and-dry-skin.-water_b---pastesubgroupfirst_name_c-is-not-getting-enough-water.-kids-dont-always-recognise-the-early-stages-of-thirst-which-can-make-them-particularly-vulnerable-to-becoming-dehydrated-especially-during-times-that-can-drive-up-their-body-fluid-losses-for-example-when-they-are-playing-sport-or-during-warm-weather.-dehydration-even-if-only-mild-can-cause-tiredness-headaches-lack-of-concentration-reduced-mental-performance-and-dry-skin.-here-are-a-couple-things-you-can-try-to-make-subgroupfirst_name_c-drink-more-water-water_1---paste-diluting-a-fresh-juice-with-some-water-is-an-option-if-the-child-is-not-willing-to-drink-water-voluntarily-water_2---paste-actively-encourage-them-to-drink-more-and-lead-by-example-cat-things-youre-doing-well-n-catn-catn-ifsubgroupprotein_total_p-10-catprotein-catn-catn-catprotein_g-catn-catn-ifsubgroupdairy_total_p-10-catdairy-catdairy.jpg-catn-catn-catdairy_g-catn-catn-ifsubgroupvegetables_p-4-catveg-catvegetable.jpg-catn-catn-catveg_g-catn-catn-ifsubgroupfruits_p-4-catfruit-catfruit.jpg-catn-catn-catfruit_g-catn-catn-ifsubgrouphealthy_p-8-catjunk-catsugar.png-catn-catn-catjunk_g-catn-catn-ifsubgroupexcercise_p-4-catexercise-catn-catn-catexercise_g-catn-catn-ifsubgroupscreen_p-4-catscreens-catn-catn-catscreen_g-catn-catn-ifsubgroupwater_p-4-catwater-catn-catn-catwater_g-catn-catn}
+
+\section{}\label{section}
+
+\section{\texorpdfstring{\newpage
+}{}}\label{section-1}
+
+\section{\texorpdfstring{```\{r,
+results=``asis''\}}{```\{r, results=asis\}}}\label{r-resultsasis}
+
+\section{}\label{section-2}
+
+\section{}\label{section-3}
+
+\section{\texorpdfstring{cat(``\#'', ``Things You Could Improve at'',
+``\n'')}{cat(\#, Things You Could Improve at, )}}\label{cat-things-you-could-improve-at}
+
+\section{}\label{section-4}
+
+\section{\texorpdfstring{cat(``Below are some tips on how you could
+improve'',
+subgroup\(first_name, "health and nutrition. After going through the bulleted tips and your appointment with the nutritionist, we reccomend you selct 3-5 tips to focus on and improve over the next year") # # cat("\n") # cat("\n") # # if(subgroup\)protein\_total\_p
+\textless{}
+10)\{}{cat(Below are some tips on how you could improve, subgroupfirst\_name, "health and nutrition. After going through the bulleted tips and your appointment with the nutritionist, we reccomend you selct 3-5 tips to focus on and improve over the next year") \# \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# \# if(subgroupprotein\_total\_p \textless{} 10)\{}}\label{catbelow-are-some-tips-on-how-you-could-improve-subgroupfirst_name-health-and-nutrition.-after-going-through-the-bulleted-tips-and-your-appointment-with-the-nutritionist-we-reccomend-you-selct-3-5-tips-to-focus-on-and-improve-over-the-next-year-catn-catn-ifsubgroupprotein_total_p-10}
+
+\section{cat(protein)}\label{catprotein}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-1}
+
+\section{cat(protein\_b)}\label{catprotein_b}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-2}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-3}
+
+\section{cat(protein\_1)}\label{catprotein_1}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-4}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-5}
+
+\section{cat(protein\_2)}\label{catprotein_2}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-6}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-7}
+
+\section{cat(protein\_3)}\label{catprotein_3}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-8}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-9}
+
+\section{cat(protein\_4)}\label{catprotein_4}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-10}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-11}
+
+\section{\}}\label{section-5}
+
+\section{}\label{section-6}
+
+\section{\texorpdfstring{if(subgroup\(dairy_total_p < 10){ # cat(dairy) # cat("![](dairy.jpg)") # cat("\n") # cat("\n") # cat(dairy_b) # cat("\n") # cat("\n") # cat(dairy_1) # cat("\n") # cat("\n") # cat(dairy_2) # cat("\n") # cat("\n") # cat(dairy_3) # cat("\n") # cat("\n") # } # # if(subgroup\)vegetables\_p
+\textless{}
+4)\{}{if(subgroupdairy\_total\_p \textless{} 10)\{ \# cat(dairy) \# cat("!{[}{]}(dairy.jpg)") \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(dairy\_b) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(dairy\_1) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(dairy\_2) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(dairy\_3) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# \} \# \# if(subgroupvegetables\_p \textless{} 4)\{}}\label{ifsubgroupdairy_total_p-10-catdairy-catdairy.jpg-catn-catn-catdairy_b-catn-catn-catdairy_1-catn-catn-catdairy_2-catn-catn-catdairy_3-catn-catn-ifsubgroupvegetables_p-4}
+
+\section{cat(veg)}\label{catveg}
+
+\section{\texorpdfstring{cat(``\protect\includegraphics{vegetable.jpg}'')}{cat()}}\label{cat-12}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-13}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-14}
+
+\section{cat(veg\_b)}\label{catveg_b}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-15}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-16}
+
+\section{cat(veg\_1)}\label{catveg_1}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-17}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-18}
+
+\section{cat(veg\_2)}\label{catveg_2}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-19}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-20}
+
+\section{cat(veg\_3)}\label{catveg_3}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-21}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-22}
+
+\section{cat(veg\_4)}\label{catveg_4}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-23}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-24}
+
+\section{cat(veg\_5)}\label{catveg_5}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-25}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-26}
+
+\section{cat(veg\_6)}\label{catveg_6}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-27}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-28}
+
+\section{\}}\label{section-7}
+
+\section{}\label{section-8}
+
+\section{}\label{section-9}
+
+\section{\texorpdfstring{if(subgroup\(fruits_p < 4){ # cat(fruit) # cat("![](fruit.jpg)") # cat("\n") # cat("\n") # cat(fruit_b) # cat("\n") # cat("\n") # cat(fruit_1) # cat("\n") # cat("\n") # cat(fruit_2) # cat("\n") # cat("\n") # cat(fruit_3) # cat("\n") # cat("\n") # cat(fruit_4) # cat("\n") # cat("\n") # cat(fruit_5) # cat("\n") # cat("\n") # } # # # if(subgroup\)healthy\_p
+\textless{}
+8)\{}{if(subgroupfruits\_p \textless{} 4)\{ \# cat(fruit) \# cat("!{[}{]}(fruit.jpg)") \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(fruit\_b) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(fruit\_1) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(fruit\_2) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(fruit\_3) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(fruit\_4) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(fruit\_5) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# \} \# \# \# if(subgrouphealthy\_p \textless{} 8)\{}}\label{ifsubgroupfruits_p-4-catfruit-catfruit.jpg-catn-catn-catfruit_b-catn-catn-catfruit_1-catn-catn-catfruit_2-catn-catn-catfruit_3-catn-catn-catfruit_4-catn-catn-catfruit_5-catn-catn-ifsubgrouphealthy_p-8}
+
+\section{cat(junk)}\label{catjunk}
+
+\section{\texorpdfstring{cat(``\protect\includegraphics{sugar.png}'')}{cat()}}\label{cat-29}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-30}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-31}
+
+\section{cat(junk\_b)}\label{catjunk_b}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-32}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-33}
+
+\section{cat(junk\_1)}\label{catjunk_1}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-34}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-35}
+
+\section{cat(junk\_2)}\label{catjunk_2}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-36}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-37}
+
+\section{cat(junk\_3)}\label{catjunk_3}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-38}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-39}
+
+\section{cat(junk\_4)}\label{catjunk_4}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-40}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-41}
+
+\section{cat(junk\_5)}\label{catjunk_5}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-42}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-43}
+
+\section{cat(junk\_6)}\label{catjunk_6}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-44}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-45}
+
+\section{\}}\label{section-10}
+
+\section{}\label{section-11}
+
+\section{}\label{section-12}
+
+\section{\texorpdfstring{if(subgroup\(excercise_p < 4){ # cat(exercise) # cat("\n") # cat("\n") # cat(exercise_b) # cat("\n") # cat("\n") # cat(ex_1) # cat("\n") # cat("\n") # cat(ex_2) # cat("\n") # cat("\n") # cat(ex_3) # cat("\n") # cat("\n") # cat(ex_4) # cat("\n") # cat("\n") # } # # if(subgroup\)screen\_p
+\textless{}
+4)\{}{if(subgroupexcercise\_p \textless{} 4)\{ \# cat(exercise) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(exercise\_b) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(ex\_1) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(ex\_2) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(ex\_3) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# cat(ex\_4) \# cat("\textbackslash{}n") \# cat("\textbackslash{}n") \# \} \# \# if(subgroupscreen\_p \textless{} 4)\{}}\label{ifsubgroupexcercise_p-4-catexercise-catn-catn-catexercise_b-catn-catn-catex_1-catn-catn-catex_2-catn-catn-catex_3-catn-catn-catex_4-catn-catn-ifsubgroupscreen_p-4}
+
+\section{cat(screens)}\label{catscreens}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-46}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-47}
+
+\section{cat(screen\_b)}\label{catscreen_b}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-48}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-49}
+
+\section{cat(screen\_1)}\label{catscreen_1}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-50}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-51}
+
+\section{\}}\label{section-13}
+
+\section{}\label{section-14}
+
+\section{}\label{section-15}
+
+\section{}\label{section-16}
+
+\section{if(subgroup\$water\_p \textless{}
+4)\{}\label{ifsubgroupwater_p-4}
+
+\section{cat(water)}\label{catwater}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-52}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-53}
+
+\section{cat(water\_b)}\label{catwater_b}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-54}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-55}
+
+\section{cat(water\_1)}\label{catwater_1}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-56}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-57}
+
+\section{cat(water\_2)}\label{catwater_2}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-58}
+
+\section{\texorpdfstring{cat(``\n'')}{cat()}}\label{cat-59}
+
+\section{\}}\label{section-17}
+
+```
+
+\newpage
+
+\includegraphics{cn_logo.jpg}
+
+
+\end{document}

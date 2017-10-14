@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#Loading in neccessary libraries\nlibrary(rmarkdown)\nlibrary(tidyverse)\nlibrary(Hmisc)\n\n#reading data in\nprimary <- read.csv(\"cns_primary_data.csv\", stringsAsFactors = FALSE)\n\n## Making Clean DataFrame\n\n#column names\nnames_primary <- c(\"timestamp\", \"first_name\", \"last_aname\", \"gender\", \"age\", \"grade\", \"division\",\n                      \"parent_name\", \"parent_email\", \"vegetarian_or_not\", \"sick\", \"allergy\", \"dairy\", \n                      \"milk_type\",  \"vegetables\", \"potato\", \"fruits\", \"juice\",  \"whole_grains\", \"sugary_foods_week\", \n                      \"fast_food_week\", \"meat\", \"egg\", \"dal\", \"nuts\", \"water\", \"excercise\", \"screen\", \"dinner_with_family\",\"priority\", \n                      \"more_often\", \"disappointed\", \"comment\")\n\nprimary_clean <- primary\ncolnames(primary_clean) <- names_primary\n\n## Adding Columns \n\n#protein: serrvings to grams per day \n\nprimary_clean <- mutate(primary_clean,\n                        dairy_protein = case_when(.$dairy == \"Less than 1 serving\" ~ 3,\n                                                  .$dairy == \"1 serving\" ~ 6,\n                                                  .$dairy == \"2 servings\" ~ 12,\n                                                  .$dairy == \"3 servings\" ~ 3,\n                                                  .$dairy == \"4 or more servings\" ~ 24)\n                        )\n\n# preprimary_clean <- preprimary_clean %>%\n#   mutate(dairy_total_p = dairy_milk_p + dairy_cheese_p + dairy_paneer_p +dairy_curd_p)%>%\n#   mutate(dairy_variety_p = (dairy_milk_p > 0) + (dairy_cheese_p  > 0) + (dairy_paneer_p  > 0) + (dairy_curd_p  > 0 ))%>%\n#   mutate(protein_total_p = protein_chicken_p +protein_dal_p + protein_eggs_p + protein_fish_p + protein_meat_p + protein_nuts_p)%>%\n#   mutate(dairy_total_p = case_when(.$dairy_total_p >= 7 ~ 10,\n#                                    .$dairy_total_p < 7 ~ .$dairy_total_p))%>%\n#   mutate(protein_total_p = case_when(.$protein_total_p >= 7 ~ 10,\n#                                      .$protein_total_p < 7 ~ .$protein_total_p))%>%\n#   mutate(healthy_p = sugary_foods_p + fast_food_p)",
+    "created" : 1505320138125.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2003083522",
+    "id" : "830CA0B6",
+    "lastKnownWriteTime" : 1503427933,
+    "last_content_update" : 1503427933,
+    "path" : "~/Cafe-Nutrition/CNS Primary/cns_primary_script.R",
+    "project_path" : "cns_primary_script.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

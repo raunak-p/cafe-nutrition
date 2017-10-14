@@ -1,0 +1,1 @@
+{"frames":[{"character_number":0,"end_character_number":0,"end_line_number":0,"file":"","func":"sample.split(email_sparse$spam, 0.7)","line_number":0}],"message":"Error in email_sparse$spam : $ operator is invalid for atomic vectors\n"}

@@ -1,0 +1,4 @@
+"0","spl <- sample.split(email_sparse$spam, 0.7)
+"
+"2","Error in email_sparse$spam : $ operator is invalid for atomic vectors
+"
