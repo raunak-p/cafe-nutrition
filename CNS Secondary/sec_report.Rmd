@@ -141,13 +141,10 @@ f  <- ggplot(data, aes(x = Fruit, y = Score, fill = Type)) +
         axis.ticks.y=element_blank())
 
 
-
-
 # Fast
 Fast <- c(".", ".")
 Type <- c("your  Potato ", "ideal potato")
 
-#FOR SOME Inexplicable reason, have to switch scores around here
 Score <- c(subgroup$fast_s, 5 - subgroup$fast_s)
 
 data <- data.frame(Fast, Type, Score)
