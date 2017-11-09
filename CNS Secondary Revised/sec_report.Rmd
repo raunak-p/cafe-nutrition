@@ -1,32 +1,45 @@
 ---
-output:
-  pdf_document:
-    fig_caption: FALSE
-    
-  html_document:
-    df_print: paged
----
+title: "Nutrition Report 2017"
 
+output: 
+  pdf_document:
+    fig_caption: false
+   
+---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.align = "center")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
-\pagenumbering{gobble}
 
-```{r, fig.align="centre", results="asis"}
-cat("![](../Files/school_logo.png)")
+```{r}
+library(pander)
+library(latex2exp)
+library(latexpdf)
+#library(tidyverse)
+library(gridExtra)
+library(ggplot2)
+
+```
+
+
+```{r fig.align="center", results = "asis"}
+#cat(cns_logo.png)
+cat("![](JNI_school_logo.png)")
+cat("\n")
+cat("\n")
 
 ```
 
 \newpage
 
-```{r fig.align='centre'}
-#Ideal Nutrition Graph
+```{r, warning = FALSE, message=FALSE }
+#Graphs
 
 Total_Nutrition <- c(".", ".")
 Type <- c("Your Nutrition Score", "Ideal Score")
 Score <- c(subgroup$total_s, 50 - subgroup$total_s)
 data <- data.frame(Total_Nutrition, Type, Score)
+
 
 cat("\n")
 cat("\n")
@@ -40,14 +53,17 @@ ggplot(data, aes(x = Total_Nutrition, y = Score, fill = Type)) +
 
 ```
 
-Your child `r subgroup$proper_first_name` has a total nutrition score of `r subgroup$total_points` out of 50 possible points. Read on to know what you're doing well and how you can get even better
 
-```{r, fig.width=15, fig.height=18}
+`r subgroup$proper_first_name` has a total nutrition score of `r subgroup$total_s` out of 50 possible points. Read on to know what you're doing well and how you can get even better
+
+```{r, fig.width=15, fig.height=18, warning=FALSE, message=FALSE}
 
 #Protein
 Protein <- c(".", ".")
 Type <- c("Your Protein Score", "Ideal Protein Score")
-Score <- c(10 - subgroup$protein_total_points, subgroup$protein_total_points)
+Score <- c(".", ".")
+Score <- c(subgroup$prot_s, 10 - subgroup$prot_s)
+
 data <- data.frame(Protein, Type, Score)
 
 p  <- ggplot(data, aes(x = Protein, y = Score, fill = Type)) +
@@ -61,11 +77,15 @@ p  <- ggplot(data, aes(x = Protein, y = Score, fill = Type)) +
         axis.title.y = element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank())
-  
+
+
+
 #Dairy
 Dairy <- c(".", ".")
 Type <- c("Your Dairy Score", "Ideal Dairy Score")
-Score <- c(subgroup$dairy_total_points, 10 - subgroup$dairy_total_points)
+Score <- c(subgroup$dairy_s, 5 - subgroup$dairy_s)
+
+
 data <- data.frame(Dairy, Type, Score)
 
 d  <- ggplot(data, aes(x = Dairy, y = Score, fill = Type)) +
@@ -79,11 +99,12 @@ d  <- ggplot(data, aes(x = Dairy, y = Score, fill = Type)) +
         axis.title.y = element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank())
-    
+
 #Vegetables
 Vegetables <- c(".", ".")
 Type <- c("Your Vegetable Score", "Ideal Vegetable Score")
-Score <- c(subgroup$vegetables_points, 4 - subgroup$vegetables_points)
+Score <- c(subgroup$veg_s, 5 - subgroup$veg_s)
+
 data <- data.frame(Vegetables, Type, Score)
 
 v  <- ggplot(data, aes(x = Vegetables, y = Score, fill = Type)) +
@@ -101,7 +122,8 @@ v  <- ggplot(data, aes(x = Vegetables, y = Score, fill = Type)) +
 #Fruits
 Fruit <- c(".", ".")
 Type <- c("Your Fruit Score", "Ideal Fruit Score")
-Score <- c(subgroup$fruits_points, 4 - subgroup$fruits_points)
+Score <- c(subgroup$fruit_s, 5 - subgroup$fruit_s)
+
 data <- data.frame(Fruit, Type, Score)
 
 f  <- ggplot(data, aes(x = Fruit, y = Score, fill = Type)) +
@@ -116,15 +138,42 @@ f  <- ggplot(data, aes(x = Fruit, y = Score, fill = Type)) +
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank())
 
-#No Junk
-Junk_Food <- c(".", ".")
-Type <- c("Your Junk Score", "Ideal Junk Score")
-Score <- c(subgroup$healthy_points, 8 - subgroup$healthy_points)
-data <- data.frame(Junk_Food, Type, Score)
-j  <- ggplot(data, aes(x = Junk_Food, y = Score, fill = Type)) +
+
+
+
+# Fast
+Fast <- c(".", ".")
+Type <- c("your  Potato ", "ideal potato")
+
+Score <- c(subgroup$fast_s, 5 - subgroup$fast_s)
+
+data <- data.frame(Fast, Type, Score)
+
+fa  <- ggplot(data, aes(x = Fast, y = Score, fill = Type)) +
   geom_bar(stat = "identity") +
   guides(fill=FALSE) +
-  ggtitle("Junk Food") +
+  ggtitle("Fast Food") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        plot.title = element_text(size=30, hjust = 0.5),
+        axis.title.y = element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank()
+        )
+
+#Sweet
+
+Sweet_Food <- c(".", ".")
+Type <- c("Your Junk Score", "Ideal Junk Score")
+Score <- c(subgroup$sweet_s, 5 - subgroup$sweet_s)
+
+data <- data.frame(Sweet_Food, Type, Score)
+
+s  <- ggplot(data, aes(x = Sweet_Food, y = Score, fill = Type)) +
+  geom_bar(stat = "identity") +
+  guides(fill=FALSE) +
+  ggtitle("Sweet Food") +
   theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
@@ -135,11 +184,14 @@ j  <- ggplot(data, aes(x = Junk_Food, y = Score, fill = Type)) +
 
 
 #Excercise
-Exercise <- c(".", ".")
+
+Excercise <- c(".", ".")
 Type <- c("Your e Score", "Ideal e Score")
-Score <- c(subgroup$exercise_points, 4 - subgroup$exercise_points)
-data <- data.frame(Exercise, Type, Score)
-e  <- ggplot(data, aes(x = Exercise, y = Score, fill = Type)) +
+Score <- c(subgroup$exercise_s, 5 - subgroup$exercise_s)
+
+data <- data.frame(Excercise, Type, Score)
+
+e  <- ggplot(data, aes(x = Excercise, y = Score, fill = Type)) +
   geom_bar(stat = "identity") +
   guides(fill=FALSE) +
   ggtitle("Excercise") +
@@ -152,33 +204,11 @@ e  <- ggplot(data, aes(x = Exercise, y = Score, fill = Type)) +
         axis.ticks.y=element_blank())
 
 
-#FOR SOME Inexplicable reason, have to switch scores around here
-
-#Screen
-Screen <- c(".", ".")
-Type <- c("m", "p")
-Score <- c(4 - subgroup$screen_p, subgroup$screen_p)
-#Score <- c(subgroup$screen_points, 5- subgroup$screen_points)
-
-data <- data.frame(Screen, Type, Score)
-
-s  <- ggplot(data, aes(x = Screen, y = Score, fill = Type)) +
-  geom_bar(stat = "identity") +
-  guides(fill=FALSE) +
-  ggtitle("Screen Time") +
-  theme(axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
-        axis.ticks.x=element_blank(),
-        plot.title = element_text(size=30, hjust = 0.5),
-        axis.title.y = element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks.y=element_blank()
-        )
-
 #Water
+
 Water <- c(".", ".")
 Type <- c("o", "l")
-Score <- c(subgroup$water_p, 4 - subgroup$water_p)
+Score <- c(subgroup$water_s, 5 - subgroup$water_s)
 
 data <- data.frame(Water, Type, Score)
 
@@ -195,32 +225,43 @@ w  <- ggplot(data, aes(x = Water, y = Score, fill = Type)) +
         axis.ticks.y=element_blank())
 
 
-grid.arrange(p,d, v, f, j,e, s, w, ncol = 2)
+grid.arrange(p,d, v, f, s, fa, e, w, ncol = 2)
+
 
 ```
-
 ```{r, results = 'asis'}
 cat("A higher proportion of blue green indicates better performance. For example, blue/green in vegetables indicates that your child is getting enough vegetables, while more blue/green in junk food and screen indicates your child is getting *less* junk and screen time")
 ```
+\newpage
+
 
 ```{r, results = 'asis'}
+good <- paste("Here are some things that", subgroup$proper_first_name, "is doing well. Keep them up")
 
 protein <- paste("##", "Protein")
 protein_g <- paste(subgroup$proper_first_name, "is getting enough protein. This is great because protein repairs your builds and repairs body tissue and organs, especially vital at this age. Proteins also form antibodies that help prevent infection, illness, and disease. Good job at keeping", subgroup$proper_first_name, "healthy and safe!")
-protein_b <- paste(subgroup$proper_first_name, "needs to get more protein. Protein repairs your builds and repairs body tissue and organs, especially vital at this age. Proteins also form antibodies that help prevent infection, illness, and disease. The following foods contain")
-protein_1 <- paste("*", "Dals and beans")
-protein_2 <- paste("*", "Nuts and seeds")
-protein_3 <- paste("*", "Eggs and poultry")
-protein_4 <- paste("*", "Fish")
+protein_ba <- paste(subgroup$proper_first_name, "needs to get more protein. Protein repairs your builds and repairs body tissue and organs, especially vital at this age. Proteins also form antibodies that help prevent infection, illness, and disease. The following foods contain protein:")
+protein_1a <- paste("*", "Dals and beans")
+protein_2a <- paste("*", "Nuts and seeds")
+protein_3a <- paste("*", "Eggs and poultry")
+protein_4a<- paste("*", "Fish")
+protein_bb <- paste("Protein intake is more than the recommended protein requirement for the age. Extra protein can cause an increase in fat mass in the child and extra protein does not necessarily lead to stronger muscles and bones later. Though protein is good for children, high intake would mean compromising on rest of the essential food groups. You could analyse the diet with the nutritionist to understand those foods that can be reduced eg.")
+protein_1b <- paste("* The child may be having extra servings from the dairy group")
+protein_2b <- paste("* There may be more reliance on the foods from the egg and meat section and less from the vegetable and fruit group")
 
 
 dairy <- paste("##", "Dairy")
 dairy_g <- paste("Getting enough dairy is not a problem for", subgroup$proper_first_name, ". Dairy and dairy-containing foods contribute many essential nutrients. Calcium and Vitamin D, especially, are  most easily absorbed from dairy.Both these nutrients are important in ensuring that", subgroup$proper_first_name, "has healthy bones and teeth")
-dairy_b <- paste(subgroup$proper_first_name, "could do with some more dairy. Dairy and dairy-containing foods contribute many essential nutrients. Calcium and Vitamin D, especially, are  most easily absorbed from dairy.Both these nutrients are important in ensuring that", subgroup$proper_first_name, "has healthy bones and teeth. You could squeeze in a serving as a snack in the evening, or a cup of yogurt post the evening play. Here are some other tips to increase", subgroup$his_and_her, "dairy intake:")
-dairy_1 <- paste("*", "Add milk in homemade puddings or fruit custards. You can control sugar with homemade stuff.")
-dairy_2 <- paste("*", "Parathas with paneer")
-dairy_3 <- paste("*", "Cheese cubes with fruit can be a great snack")
-dairy_4 <- paste("*", "Smoothies and milkshakes are good options as well")
+dairy_ba <- paste(subgroup$proper_first_name, "could do with some more dairy. Dairy and dairy-containing foods contribute many essential nutrients. Calcium and Vitamin D, especially, are  most easily absorbed from dairy.Both these nutrients are important in ensuring that", subgroup$proper_first_name, "has healthy bones and teeth. You could squeeze in a serving as a snack in the evening, or a cup of yogurt post the evening play. Here are some other tips to increase", subgroup$his_and_her, "dairy intake:")
+dairy_1a <- paste("*", "Add milk in homemade puddings or fruit custards. You can control sugar with homemade stuff.")
+dairy_2a <- paste("*", "Parathas with paneer")
+dairy_3a <- paste("*", "Cheese cubes with fruit can be a great snack")
+dairy_4a <- paste("*", "Smoothies and milkshakes are good options as well")
+dairy_bb <- paste(subgroup$proper_first_name, " is currently having more of dairy foods than what is needed at", subgroup$his_her, "age. Yes, dairy is good for growing children to help maintain strong teeth and bones, but including too much can mean filling up the children and increasing the chances that they forgo other nutrient rich foods. You could analyse the diet with the nutritionist and make the following changes if applicable:")
+dairy_1b <- paste("* Reduce the intake of milk if he/she is having more than 3 servings of milk per day")
+dairy_2b <- paste("* Restrict the intake of cheese if it is added to almost all foods (after all cheese can increase the total calorie intake even in children")
+
+
 
 
 fruit <- paste("##", "Fruits")
@@ -243,16 +284,22 @@ veg_4 <- paste("*", "Use pureed or grated vegetables in pasta sauces or soups")
 veg_5 <- paste("*", "Include them in parathas (even aloo parathas can have other mashed vegetables)")
 veg_6 <- paste("*", "Keep trying. It takes almost 10 times before children warm up to a particular food")
 
+sweet <- paste("##", "Sweet Food")
+sweet_g <- paste("We are happy to notice that unlike other children", subgroup$proper_first_name, "is keeping", subgroup$his_her, "intake of sugar to a minimum. Apart from promoting obesity and cardiac disease, sugar can have a harmful impact on academic performance. In an interesting study researchers fed normal preschoolers a high-sugar drink containing the amount of sugar in the average can of soda and compared them with children who received a non-sugar drink. The sugar group experienced decreased learning performance and more hyperactivity than the non-sugar group. So, great job!")
+sweet_b <- paste(subgroup$proper_first_name, "needs to keep a tab on the intake of sugar based foods. High intake can affect the bone development, the brain activity and contribute to unnecessary empty calorie intake. It has been well documented in various studies that high intake of sugar in foods decreases attention span and memory. Some things you can do as a parent to reduce the intake of sugar in", subgroup$his_her, "diet")
+sweet_1 <- paste( "*", "Parents - lead by example. If children see you snacking on sweet foods and drinks they will follow you")
+sweet_2 <- paste( "*", " Set a specific day and mealtime for dessert")
+sweet_3 <- paste( "*", "Offer sweet fruits or dried fruits as snacks")
+sweet_4 <- paste( "*", "Buy plain yogurt instead of the flavoured one and sweeten it with dried fruits or berries to enhance the taste")
 
-junk <- paste("##", "Junk Food")
-junk_g <- paste("Unlike most kids, you are keeping", subgroup$proper_first_name, "'s fried and sugary intake to a minimum. Good job! Apart from promoting obesity and cardiac disease, sugar can have a harmful effect on academic performace. In an interesting study researchers fed normal preschoolers a high-sugar drink containing the amount of sugar in the average can of soda and compared them with children who received a non-sugar drink. The sugar group experienced decreased learning performance and more hyperactivity than the non-sugar group.")
-junk_b <- paste(subgroup$proper_first_name, "could reduce", subgroup$his_and_her, "consumption of sweet and/or fried food. Apart from promoting obesity and cardiac disease, sugar can have a harmful effect on academic performace. In an interesting study, researchers fed normal preschoolers a high-sugar drink containing the amount of sugar in the average can of soda and compared them with children who received a non-sugar drink. The sugar group experienced decreased learning performance and more hyperactivity than the non-sugar group. Here are some strateges for how to do that")
-junk_1 <- paste( "*", "Parents - lead by example. If children see you snacking on sweet foods and drinks they will follow you")
-junk_2 <- paste( "*", " Set a specific day and mealtime for dessert")
-junk_3 <- paste( "*", "Offer sweet fruits or dried fruits as snacks")
-junk_4 <- paste( "*", "Buy plain yogurt instead of the flavoured one and sweeten it with dried fruits or berries to enhance the taste")
-junk_5 <- paste( "*", "Stock your home with healthy snacking options like dried fruits, nuts, fruits and vegetables with dips like hummus and curd dips etc")
-junk_6 <- paste("*", "Cook healthier alternatives of junk food eg baked fries instead of frying them, homemade pizzas with the healthy base and sauce, homemade burgers, whole wheat pastas, etc ")
+fast <- paste("##", "Fast Food")
+fast_g <- paste("Excellent! In comparison to other children,", subgroup$proper_first_name, "'s intake of the processed and junk food is in check. These foods are high in fats and sugars and low in fiber. Healthy eating habits affects children’s physical, mental and physical growth through the essential growing years. And keeping a check on the intake now will only pave for a healthier life during adulthood.")
+fast_b <- paste(subgroup$proper_first_name, "seems to be getting more of junk and processed foods in", subgroup$his_her, "diet. Junk food is appealing to most children. However, regularly consuming fattening junk food can be addictive for children and lead to complications like obesity, chronic illness as well as affecting how they perform in school and extracurricular activities. Some strategies to help make healthier choices are:")
+fast_1 <- paste( "*", "Stock your home with healthy snacking options like dried fruits, nuts, fruits and vegetables with dips like hummus and curd dips etc")
+fast_2 <- paste("*", "Cook healthier alternatives of junk food eg baked fries instead of frying them, homemade pizzas with the healthy base and sauce, homemade burgers, whole wheat pastas, etc ")
+
+
+
 
 
 exercise <- paste("##", "Exercise")
@@ -264,12 +311,6 @@ ex_3 <- paste("*", "Walk short distances with the child instead of taking a vehi
 ex_4 <- paste("*", "Decrease screen time as hand held devices, computers and mobile phones for a few hours may reduce active play time")
 
 
-screens <- paste("##", "Screen Time")
-screen_g <- paste(subgroup$proper_first_name, "is a rare gem. The majority of kids spend hours on screens. Excessive screen time at a young age can be harmful in many ways. For example, tablets are the ultimate shortcut tools. Unlike a mother reading a story to a child, for example, a smartphone-told story spoon-feeds images, words, and pictures all at once to a young reader. Rather than having to take the time to process a mother’s voice into words, visualize complete pictures and exert a mental effort to follow a story line, kids who follow stories on their smartphones get lazy. The device does the thinking for them, and as a result, their own cognitive muscles remain weak.")
-screen_b <- paste("It would be good for", subgroup$proper_first_name, "to spend less time on screens. Excessive screen time at a young age can be harmful in many ways. For example, tablets are the ultimate shortcut tools. Unlike a mother reading a story to a child, for example, a smartphone-told story spoon-feeds images, words, and pictures all at once to a young reader. Rather than having to take the time to process a mother’s voice into words, visualize complete pictures and exert a mental effort to follow a story line, kids who follow stories on their smartphones get lazy. The device does the thinking for them, and as a result, their own cognitive muscles remain weak.")
-screen_1 <- paste("*", "You could replace time spent on screen by encouraging", subgroup$proper_first_name, "to spend more time playing. Maybe join a sports class or group?")
-
-
 water <- paste("## Water")
 water_g <- paste(subgroup$proper_first_name, "is getting enough water. Let this continue as kids don't always recognise the early stages of thirst, which can make them particularly vulnerable to becoming dehydrated, especially during times that can drive up their body fluid losses, for example when they are playing sport or during warm weather. Dehydration, even if only mild, can cause tiredness, headaches, lack of concentration, reduced mental performance and dry skin.")
 water_b <- paste(subgroup$proper_first_name, "is not getting enough water. Kids don't always recognise the early stages of thirst, which can make them particularly vulnerable to becoming dehydrated, especially during times that can drive up their body fluid losses, for example when they are playing sport or during warm weather. Dehydration, even if only mild, can cause tiredness, headaches, lack of concentration, reduced mental performance and dry skin.  Here are a couple things you can try to make", subgroup$proper_first_name, "drink more water")
@@ -279,13 +320,13 @@ water_2 <- paste("*", "Actively encourage them to drink more and lead by example
 ```
 
 \newpage
+
 ```{r, results="asis"}
-  
 cat("#", "Things You're Doing Well", "\n")
 cat("\n")
 cat("\n")
 
-if(subgroup$protein_total_points== 10){
+if(subgroup$prot_s == 10){
   cat(protein)
   cat("\n")
   cat("\n")
@@ -294,9 +335,9 @@ if(subgroup$protein_total_points== 10){
   cat("\n")
 }
 
-if(subgroup$dairy_total_points == 10){
+if(subgroup$dairy_s == 5){
   cat(dairy)
-  cat("![](../Files/dairy.jpg)")
+  cat("![](dairy.jpg)")
   cat("\n")
   cat("\n")
   cat(dairy_g)
@@ -304,9 +345,9 @@ if(subgroup$dairy_total_points == 10){
   cat("\n")
 }
 
-if(subgroup$vegetables_points == 4){
+if(subgroup$veg_s == 5){
   cat(veg)
-  cat("![](../Files/vegetable.jpg)")
+  cat("![](vegetable.jpg)")
   cat("\n")
   cat("\n")
   cat(veg_g)
@@ -314,9 +355,10 @@ if(subgroup$vegetables_points == 4){
   cat("\n")
 }
 
-if(subgroup$fruits_points == 4){
+
+if(subgroup$fruit_s == 5){
   cat(fruit)
-  cat("![](../Files/fruit.jpg)")
+  cat("![](fruit.jpg)")
   cat("\n")
   cat("\n")
   cat(fruit_g)
@@ -324,17 +366,28 @@ if(subgroup$fruits_points == 4){
   cat("\n")
 }
 
-if(subgroup$healthy_points == 8){
-  cat(junk)
-  cat("![](../Files/sugar.png)")
+
+if(subgroup$sweet_s == 5){
+  cat(sweet)
+  cat("![](sugar.png)")
   cat("\n")
   cat("\n")
-  cat(junk_g)
+  cat(sweet_g)
   cat("\n")
   cat("\n")
 }
 
-if(subgroup$exercise_points == 4){
+if(subgroup$fast_s == 5){
+  cat(fast)
+  cat("\n")
+  cat("\n")
+  cat(fast_g)
+  cat("\n")
+  cat("\n")
+}
+
+
+if(subgroup$exercise_s == 5){
   cat(exercise)
   cat("\n")
   cat("\n")
@@ -343,16 +396,9 @@ if(subgroup$exercise_points == 4){
   cat("\n")
 }
 
-if(subgroup$screen_points == 4){
-  cat(screens)
-  cat("\n")
-  cat("\n")
-  cat(screen_g)
-  cat("\n")
-  cat("\n")
-}
 
-if(subgroup$water_points == 4){
+
+if(subgroup$water_s == 5){
   cat(water)
   cat("\n")
   cat("\n")
@@ -360,9 +406,11 @@ if(subgroup$water_points == 4){
   cat("\n")
   cat("\n")
 }
+
 ```
 
 \newpage
+
 ```{r, results="asis"}
 
 
@@ -373,49 +421,85 @@ cat("Below are some tips on how you could improve", subgroup$proper_first_name, 
 cat("\n")
 cat("\n")
 
-if(subgroup$protein_total_points < 10){
+if(subgroup$prot_s < 10){
+  if(subgroup$prot_b == "low_prot"){
   cat(protein)
   cat("\n")
   cat("\n")
-  cat(protein_b)
+  cat(protein_ba)
   cat("\n")
   cat("\n")
-  cat(protein_1)
+  cat(protein_1a)
   cat("\n")
   cat("\n")
-  cat(protein_2)
+  cat(protein_2a)
   cat("\n")
   cat("\n")
-  cat(protein_3)
+  cat(protein_3a)
   cat("\n")
   cat("\n")
-  cat(protein_4)
+  cat(protein_4a)
   cat("\n")
   cat("\n")
+  }
+  if(subgroup$prot_b == "high_prot"){
+  cat(protein)
+  cat("\n")
+  cat("\n")
+  cat(protein_bb)
+  cat("\n")
+  cat("\n")
+  cat(protein_1b)
+  cat("\n")
+  cat("\n")
+  cat(protein_2b)
+  cat("\n")
+  cat("\n")
+  }
 }
 
-if(subgroup$dairy_total_points < 10){
+
+
+if(subgroup$dairy_s < 10){
+  if(subgroup$dairy_b == "low_dairy"){
   cat(dairy)
-  cat("![](../Files/dairy.jpg)")
+  cat("![](dairy.jpg)")
   cat("\n")
   cat("\n")
-  cat(dairy_b)
+  cat(dairy_ba)
   cat("\n")
   cat("\n")
-  cat(dairy_1)
+  cat(dairy_1a)
   cat("\n")
   cat("\n")
-  cat(dairy_2)
+  cat(dairy_2a)
   cat("\n")
   cat("\n")
-  cat(dairy_3)
+  cat(dairy_3a)
   cat("\n")
   cat("\n")
+  }
+   if(subgroup$dairy_b == "high_dairy"){
+  cat(dairy)
+  cat("![](dairy.jpg)")
+  cat("\n")
+  cat("\n")
+  cat(dairy_bb)
+  cat("\n")
+  cat("\n")
+  cat(dairy_1b)
+  cat("\n")
+  cat("\n")
+  cat(dairy_2b)
+  cat("\n")
+  cat("\n")
+
+  }
 }
 
-if(subgroup$vegetables_points < 4){
+if(subgroup$veg_s < 5){
   cat(veg)
-  cat("![](../Files/vegetable.jpg)")
+  cat("![](vegetable.jpg)")
   cat("\n")
   cat("\n")
   cat(veg_b)
@@ -442,9 +526,9 @@ if(subgroup$vegetables_points < 4){
 }
 
 
-if(subgroup$fruits_points < 4){
+if(subgroup$fruit_s < 5){
   cat(fruit)
-  cat("![](../Files/fruit.jpg)")
+  cat("![](fruit.jpg)")
   cat("\n")
   cat("\n")
   cat(fruit_b)
@@ -468,36 +552,46 @@ if(subgroup$fruits_points < 4){
 }
 
 
-if(subgroup$healthy_points < 8){
-  cat(junk)
-  cat("![](../Files/sugar.png)")
+if(subgroup$sweet_s < 5){
+  cat(sweet)
+  cat("![](sugar.png)")
   cat("\n")
   cat("\n")
-  cat(junk_b)
+  cat(sweet_b)
   cat("\n")
   cat("\n")
-  cat(junk_1)
+  cat(sweet_1)
   cat("\n")
   cat("\n")
-  cat(junk_2)
+  cat(sweet_2)
   cat("\n")
   cat("\n")
-  cat(junk_3)
+  cat(sweet_3)
   cat("\n")
   cat("\n")
-  cat(junk_4)
+  cat(sweet_4)
   cat("\n")
   cat("\n")
-  cat(junk_5)
+}
+
+if(subgroup$fast_s < 5){
+  cat(fast)
+  cat("![](sugar.png)")
   cat("\n")
   cat("\n")
-  cat(junk_6)
+  cat(fast_b)
+  cat("\n")
+  cat("\n")
+  cat(fast_1)
+  cat("\n")
+  cat("\n")
+  cat(fast_2)
   cat("\n")
   cat("\n")
 }
 
 
-if(subgroup$exercise_points < 4){
+if(subgroup$exercise_s < 5){
   cat(exercise)
   cat("\n")
   cat("\n")
@@ -518,19 +612,11 @@ if(subgroup$exercise_points < 4){
   cat("\n")
 }
 
-if(subgroup$screen_points < 4){
-  cat(screens)
-  cat("\n")
-  cat("\n")
-  cat(screen_b)
-  cat("\n")
-  cat("\n")
-  cat(screen_1)
-  cat("\n")
-  cat("\n")
-}
 
-if(subgroup$water_points < 4){
+
+
+
+if(subgroup$water_s < 5){
   cat(water)
   cat("\n")
   cat("\n")
@@ -545,10 +631,14 @@ if(subgroup$water_points < 4){
   cat("\n")
 }
 
+
 ```
 
 \newpage
-```{r, fig.align="centre", results="asis"}
-cat("![](../Files/cf_logo.jpg)")
 
+```{r, results = "asis"}
+cat("![](cn_logo.jpg)")
 ```
+
+
+
