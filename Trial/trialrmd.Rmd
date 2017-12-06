@@ -1,0 +1,333 @@
+---
+geometry: "left= 0.5 cm, right=0.5 cm, top=3.5 cm, bottom=2 cm"
+output:
+  pdf_document:
+    fig_caption: FALSE
+header-includes:
+    \usepackage{wallpaper}
+    \usepackage{color}
+    \usepackage{multicol}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+\pagenumbering{gobble}
+
+\CenterWallPaper{1}{images/Title.jpg}
+\newpage\null\thispagestyle{empty}
+
+\newpage
+\ClearWallPaper
+
+\CenterWallPaper{1}{images/Main_Page.jpg}
+```{r,fig.align='center',results='asis'}
+#Main Plot
+Total_Nutrition <- c(".", ".")
+Type <- c("Your Score", "Ideal Score")
+Score <- c(subgroup$total_points, 50 - subgroup$total_points)
+data <- data.frame(Total_Nutrition, Type, Score)
+plot_title<-paste(subgroup$first_name,"'s", " Nutrition Report", sep="")
+cat("\\vspace*{1 cm}")
+ggplot(data, aes(x = Total_Nutrition, y = Score, fill = Type)) +
+  geom_bar(stat = "identity") +
+  ggtitle(plot_title) +
+  xlab("Total Nutrition")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+\vspace*{1 cm}
+
+`r subgroup$first_name` has a total nutrition score of `r subgroup$total_points` out of 50 possible points. Read on to know what you are and aren't doing well and how you can get even better
+
+
+\newpage
+\CenterWallPaper{1}{images/Vegetables.jpg}
+```{r, echo=FALSE, results='asis'}
+#Vegetables
+Vegetables <- c(".", ".")
+Type <- c("You", "Ideal")
+Score <- c(subgroup$vegetable_points, 5 - subgroup$vegetable_points)
+data <- data.frame(Vegetables, Type, Score)
+score_pc=subgroup$vegetable_points*20
+```
+ 
+\begin{multicols}{2}
+ 
+```{r, fig.width=4, fig.height=3, fig.align='left', echo=FALSE, results='asis'}
+
+ggplot(data, aes(x = Vegetables, y = Score, fill = Type)) +
+  geom_bar(stat = "identity")+
+  theme(
+    plot.margin =  unit(c(0.1, 0.1, 0.1, 0.1), "cm"),
+    legend.margin=margin(l = 0,r = 0.1 ,b = 0.1, t=0.1, unit='cm'),
+    axis.ticks.x=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.title.y = 
+    
+    )
+```
+
+```{r, echo=FALSE, results='asis'}
+
+if(score_pc==100){
+  #Positive Result Recommendation  
+  cat("Good Job. Keep up the good work and eat lots of veggies")
+  
+}else{
+  #Negative Result Recommendation
+  cat("1. Eat Veggies everyday")
+  cat("\\newline ")
+  cat("2. Make veggie chips in the microwave like pumpkin chips and spinach chips")
+}
+```
+
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+if(score_pc==100){
+  cat("\\vspace*{1.5cm}")
+  cat("${}$\\hspace{14.15cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else if(score_pc<9){
+  cat("\\vspace*{1.5 cm}")
+  cat("${}$\\hspace{14.8cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else{
+  cat("\\vspace*{1.2 cm}")
+  cat("${}$\\hspace{14.5cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}
+
+```
+
+\newpage
+\CenterWallPaper{1}{images/Fruits.jpg}
+```{r, echo=FALSE, results='asis'}
+#Fruit
+Fruit <- c(".", ".")
+Type <- c("You", "Ideal")
+Score <- c(subgroup$fruit_points, 5 - subgroup$fruit_points)
+data <- data.frame(Fruit, Type, Score)
+score_pc=subgroup$fruit_points*20
+```
+ 
+\begin{multicols}{2}
+ 
+```{r, fig.width=4, fig.height=3, fig.align='left', echo=FALSE, results='asis'}
+
+ggplot(data, aes(x = Fruit, y = Score, fill = Type)) +
+  geom_bar(stat = "identity")+
+  theme(
+    plot.margin =  unit(c(0.1, 0.1, 0.1, 0.1), "cm"),
+    legend.margin=margin(l = 0,r = 0.1 ,b = 0.1, t=0.1, unit='cm'),
+    axis.ticks.x=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.title.y = 
+    
+    )
+```
+
+```{r, echo=FALSE, results='asis'}
+
+if(score_pc==100){
+  #Positive Result Recommendation  
+  cat("Good Job. Keep up the good work and eat lots of veggies")
+  
+}else{
+  #Negative Result Recommendation
+  cat("1. Eat Fruits everyday")
+  cat("\\newline ")
+  cat("2. Make Juice")
+}
+```
+
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+if(score_pc==100){
+  cat("\\vspace*{1.5cm}")
+  cat("${}$\\hspace{14.15cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else if(score_pc<9){
+  cat("\\vspace*{1.5 cm}")
+  cat("${}$\\hspace{14.8cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else{
+  cat("\\vspace*{1.2 cm}")
+  cat("${}$\\hspace{14.5cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}
+
+```
+
+\newpage
+\CenterWallPaper{1}{images/Exercise.jpg}
+```{r, echo=FALSE, results='asis'}
+#Exercise
+Exercise <- c(".", ".")
+Type <- c("You", "Ideal")
+Score <- c(subgroup$exercise_points, 5 - subgroup$exercise_points)
+data <- data.frame(Exercise, Type, Score)
+score_pc=subgroup$exercise_points*20
+```
+ 
+\begin{multicols}{2}
+ 
+```{r, fig.width=4, fig.height=3, fig.align='left', echo=FALSE, results='asis'}
+
+ggplot(data, aes(x = Exercise, y = Score, fill = Type)) +
+  geom_bar(stat = "identity")+
+  theme(
+    plot.margin =  unit(c(0.1, 0.1, 0.1, 0.1), "cm"),
+    legend.margin=margin(l = 0,r = 0.1 ,b = 0.1, t=0.1, unit='cm'),
+    axis.ticks.x=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.title.y = 
+    
+    )
+```
+
+```{r, echo=FALSE, results='asis'}
+
+if(score_pc==100){
+  #Positive Result Recommendation  
+  cat("Good Job. Keep up the good work and eat lots of veggies")
+  
+}else{
+  #Negative Result Recommendation
+  cat("1. Eat Veggies everyday")
+  cat("\\newline ")
+  cat("2. Make veggie chips in the microwave like pumpkin chips and spinach chips")
+}
+```
+
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+if(score_pc==100){
+  cat("\\vspace*{1.5cm}")
+  cat("${}$\\hspace{14.15cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else if(score_pc<9){
+  cat("\\vspace*{1.5 cm}")
+  cat("${}$\\hspace{14.8cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else{
+  cat("\\vspace*{1.2 cm}")
+  cat("${}$\\hspace{14.5cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}
+
+```
+
+\newpage
+\CenterWallPaper{1}{images/Water.jpg}
+```{r, echo=FALSE, results='asis'}
+#Water
+Water <- c(".", ".")
+Type <- c("You", "Ideal")
+Score <- c(subgroup$water_points, 5 - subgroup$water_points)
+data <- data.frame(Water, Type, Score)
+score_pc=subgroup$water_points*20
+```
+ 
+\begin{multicols}{2}
+ 
+```{r, fig.width=4, fig.height=3, fig.align='left', echo=FALSE, results='asis'}
+
+ggplot(data, aes(x = Water, y = Score, fill = Type)) +
+  geom_bar(stat = "identity")+
+  theme(
+    plot.margin =  unit(c(0.1, 0.1, 0.1, 0.1), "cm"),
+    legend.margin=margin(l = 0,r = 0.1 ,b = 0.1, t=0.1, unit='cm'),
+    axis.ticks.x=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.title.y = 
+    
+    )
+```
+
+```{r, echo=FALSE, results='asis'}
+
+if(score_pc==100){
+  #Positive Result Recommendation  
+  cat("Good Job. Keep up the good work and eat lots of veggies")
+  
+}else{
+  #Negative Result Recommendation
+  cat("1. Eat Veggies everyday")
+  cat("\\newline ")
+  cat("2. Make veggie chips in the microwave like pumpkin chips and spinach chips")
+}
+```
+
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+if(score_pc==100){
+  cat("\\vspace*{1.5cm}")
+  cat("${}$\\hspace{14.15cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else if(score_pc<9){
+  cat("\\vspace*{1.5 cm}")
+  cat("${}$\\hspace{14.8cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else{
+  cat("\\vspace*{1.2 cm}")
+  cat("${}$\\hspace{14.5cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}
+
+```
+
+\newpage
+\CenterWallPaper{1}{images/Dairy.jpg}
+```{r, echo=FALSE, results='asis'}
+#Dairy
+Dairy <- c(".", ".")
+Type <- c("You", "Ideal")
+Score <- c(subgroup$dairy_points, 5 - subgroup$dairy_points)
+data <- data.frame(Dairy, Type, Score)
+score_pc=subgroup$dairy_points*20
+```
+ 
+\begin{multicols}{2}
+ 
+```{r, fig.width=4, fig.height=3, fig.align='left', echo=FALSE, results='asis'}
+
+ggplot(data, aes(x = Dairy, y = Score, fill = Type)) +
+  geom_bar(stat = "identity")+
+  theme(
+    plot.margin =  unit(c(0.1, 0.1, 0.1, 0.1), "cm"),
+    legend.margin=margin(l = 0,r = 0.1 ,b = 0.1, t=0.1, unit='cm'),
+    axis.ticks.x=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.title.y = 
+    
+    )
+```
+
+```{r, echo=FALSE, results='asis'}
+
+if(score_pc==100){
+  #Positive Result Recommendation  
+  cat("Good Job. Keep up the good work and eat lots of veggies")
+  
+}else{
+  #Negative Result Recommendation
+  cat("1. Eat Veggies everyday")
+  cat("\\newline ")
+  cat("2. Make veggie chips in the microwave like pumpkin chips and spinach chips")
+}
+```
+
+\end{multicols}
+
+```{r, echo=FALSE, results='asis'}
+if(score_pc==100){
+  cat("\\vspace*{1.5cm}")
+  cat("${}$\\hspace{14.15cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else if(score_pc<9){
+  cat("\\vspace*{1.5 cm}")
+  cat("${}$\\hspace{14.8cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}else{
+  cat("\\vspace*{1.2 cm}")
+  cat("${}$\\hspace{14.5cm} \\fontsize{40}{48}\\selectfont{\\textcolor{white}{",score_pc,"\\%","}","}","\\normalsize",sep="")  
+}
+
+```
+
+\newpage
+\CenterWallPaper{1}{images/Last_Page.jpg}
+\newpage\null\thispagestyle{empty}
